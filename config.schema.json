@@ -18,6 +18,16 @@
 					"type": "number",
 					"exclusiveMinimum": 0
 				},
+				"keys_delay_max": {
+					"description": "Maximal delay between key presses.",
+					"type": "number",
+					"exclusiveMinimum": 0
+				},
+				"keys_delay_min": {
+					"description": "Minimal delay between key presses.",
+					"type": "number",
+					"exclusiveMinimum": 0
+				},
 				"mode": {
 					"description": "Mode of the key press.",
 					"type": "string",
