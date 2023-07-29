@@ -1,0 +1,19 @@
+{
+    "key_group_0":
+    {
+        "keys": ["h", "e", "l", "l", "o"],
+        "keys_delay_min": 1,
+        "keys_delay_max": 1.5,
+        "mode": "key_press",
+        "count": 1,
+        "group_delay": 10
+    },
+    "key_group_01":
+    {
+        "keys": ["h", "i"],
+        "keys_delay": 0.5,
+        "mode": "key_press",
+        "count": 3,
+        "group_delay":  10
+    }
+}

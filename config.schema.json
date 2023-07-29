@@ -1,0 +1,80 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "Key groups",
+	"description": "Defined key groups to be pressed and it's modes & delays.",
+	"patternProperties": {
+		"^[A-Za-z0-9_]*$": {
+			"type": "object",
+			"properties": {
+				"keys": {
+					"description": "List of keys wanted to press in this group.",
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"keys_delay": {
+					"description": "Delay between key presses.",
+					"type": "number",
+					"exclusiveMinimum": 0
+				},
+				"mode": {
+					"description": "Mode of the key press.",
+					"type": "string",
+					"enum": [
+						"key_press",
+						"key_down",
+						"key_up"
+					]
+				},
+				"count": {
+					"description": "How many times group will be iterated over.",
+					"type": "integer",
+					"exclusiveMinimum": 0
+				},
+				"group_delay": {
+					"type": [
+						"string",
+						"number"
+					]
+				}
+			},
+			"oneOf": [
+				{
+					"required": [
+						"keys",
+						"keys_delay",
+						"mode",
+						"count",
+						"group_delay"
+					]
+				},
+				{
+					"required": [
+						"keys",
+						"keys_delay_max",
+						"keys_delay_min",
+						"mode",
+						"count",
+						"group_delay"
+					]
+				}
+			],
+			"if": {
+				"type": "object",
+				"properties": {
+					"group_delay": {
+						"type": "string"
+					}
+				}
+			},
+			"then": {
+				"properties": {
+					"group_delay": {
+						"const": "unlimited"
+					}
+				}
+			}
+		}
+	}
+}
